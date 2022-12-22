@@ -66,6 +66,10 @@ lspconfig["cssls"].setup({
 	on_attach = on_attach,
 	capabilities = capabilities,
 })
+lspconfig["pyright"].setup({
+	on_attach = on_attach,
+	capabilities = capabilities,
+})
 lspconfig["sumneko_lua"].setup({
 	on_attach = on_attach,
 	capabilities = capabilities,

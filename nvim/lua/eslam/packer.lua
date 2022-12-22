@@ -19,6 +19,7 @@ return require("packer").startup(function(use)
 	use("nvim-lua/plenary.nvim")
 	-- theme
 	use("folke/tokyonight.nvim")
+	use("olimorris/onedarkpro.nvim")
 	-- file explorer
 	use({ "nvim-tree/nvim-tree.lua", tag = "nightly" })
 	-- fuzzy finder
@@ -51,6 +52,8 @@ return require("packer").startup(function(use)
 	use("norcalli/nvim-colorizer.lua")
 	-- surround
 	use("tpope/vim-surround")
+	-- terminal
+	use({ "akinsho/toggleterm.nvim", tag = "*" })
 	-- treesitter configuration
 	use({ "nvim-treesitter/nvim-treesitter" })
 	-- auto closing
