@@ -24,6 +24,8 @@ return require("packer").startup(function(use)
 	use({ "nvim-tree/nvim-tree.lua", tag = "nightly" })
 	-- fuzzy finder
 	use({ "nvim-telescope/telescope.nvim", tag = "0.1.0" })
+	-- indentline
+	use("lukas-reineke/indent-blankline.nvim")
 	-- cmp plugins
 	use("hrsh7th/cmp-nvim-lsp")
 	use("hrsh7th/cmp-buffer")
@@ -54,11 +56,15 @@ return require("packer").startup(function(use)
 	use("tpope/vim-surround")
 	-- terminal
 	use({ "akinsho/toggleterm.nvim", tag = "*" })
+	-- gitsigns
+	use({ "lewis6991/gitsigns.nvim", tag = "release" })
 	-- treesitter configuration
 	use({ "nvim-treesitter/nvim-treesitter" })
 	-- auto closing
 	use("windwp/nvim-autopairs")
-	use({ "windwp/nvim-ts-autotag", after = "nvim-treesitter" })
+	use("windwp/nvim-ts-autotag")
+	-- tmux navigation
+	use("christoomey/vim-tmux-navigator")
 
 	-- Automatically set up your configuration after cloning packer.nvim
 	-- Put this at the end after all plugins

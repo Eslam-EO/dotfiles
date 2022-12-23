@@ -30,6 +30,7 @@ opt.backspace = "indent,eol,start" -- allow backspace on indent, end of line or 
 
 -- clipboard
 opt.clipboard:append("unnamedplus") -- use system clipboard as default register
+opt.undofile = true
 
 -- split windows
 opt.splitright = true -- split vertical window to the right

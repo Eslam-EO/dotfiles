@@ -6,10 +6,20 @@ vim.g.mapleader = " "
 
 -- Normal --
 -- Better window navigation
-keymap("n", "<C-h>", "<C-w>h")
-keymap("n", "<C-j>", "<C-w>j")
-keymap("n", "<C-k>", "<C-w>k")
-keymap("n", "<C-l>", "<C-w>l")
+-- keymap("n", "<C-h>", "<C-w>h")
+-- keymap("n", "<C-j>", "<C-w>j")
+-- keymap("n", "<C-k>", "<C-w>k")
+-- keymap("n", "<C-l>", "<C-w>l")
+
+-- increment/decrement numbers
+keymap("n", "<leader>+", "<C-a>") -- increment
+keymap("n", "<leader>-", "<C-x>") -- decrement
+
+-- window management
+keymap("n", "<leader>sv", "<C-w>v") -- split window vertically
+keymap("n", "<leader>sh", "<C-w>s") -- split window horizontally
+keymap("n", "<leader>se", "<C-w>=") -- make split windows equal width & height
+keymap("n", "<leader>sx", ":close<CR>") -- close current split window
 
 -- Resize with arrows
 keymap("n", "<C-Up>", ":resize -2<CR>")

@@ -32,7 +32,9 @@ from libqtile.lazy import lazy
 from libqtile.utils import guess_terminal
 
 mod = "mod4"
-terminal = guess_terminal()
+terminal = "alacritty" 
+browser = "firefox"
+filemanager = "pcmanfm"
 
 keys = [
     # A list of available commands that can be bound to keys can be found
@@ -66,7 +68,6 @@ keys = [
         lazy.layout.toggle_split(),
         desc="Toggle between split and unsplit sides of stack",
     ),
-    Key([mod], "Return", lazy.spawn(terminal), desc="Launch terminal"),
     # Toggle between different layouts as defined below
     Key([mod], "Tab", lazy.next_layout(), desc="Toggle between layouts"),
     Key([mod], "q", lazy.window.kill(), desc="Kill focused window"),
@@ -79,12 +80,12 @@ keys = [
     Key([], "XF86AudioLowerVolume", lazy.spawn("amixer -D default sset Master 2%- unmute"), desc="Lower Volume"),
     Key([], "XF86AudioRaiseVolume", lazy.spawn("amixer -D default sset Master 2%+ unmute"), desc="Raise Volume"),
     # Brightness
-    Key([], "XF86MonBrightnessUp", lazy.spawn("brightnessctl set 10%+")),
-    Key([], "XF86MonBrightnessDown", lazy.spawn("brightnessctl set 10%-")),
+    Key([], "XF86MonBrightnessUp", lazy.spawn("brightnessctl set 5%+")),
+    Key([], "XF86MonBrightnessDown", lazy.spawn("brightnessctl set 5%-")),
     # Applications Shorcuts
-    Key([mod], "b", lazy.spawn("firefox"), desc="Open Firefox"),
-    Key([mod], "x", lazy.spawn("alacritty"), desc="Run Terminal"), 
-    Key([mod], "e", lazy.spawn("pcmanfm"), desc="Open FileExplorer"),
+    Key([mod], "b", lazy.spawn(browser), desc="Open Firefox"),
+    Key([mod], "x", lazy.spawn(terminal), desc="Run Terminal"), 
+    Key([mod], "e", lazy.spawn(filemanager), desc="Open FileExplorer"),
 ]
 
 groups = [Group(i) for i in "123456789"]
@@ -114,7 +115,7 @@ for i in groups:
     )
 
 layouts = [
-    layout.Columns(border_focus_stack=["#d75f5f", "#8f3d3d"], border_width=0),
+    layout.Columns(border_focus_stack=["#d75f5f", "#8f3d3d"], border_width=0, margin=5),
     layout.Max(),
     # Try more layouts by unleashing below layouts.
      # layout.Stack(num_stacks=2),
@@ -153,6 +154,8 @@ screens = [
                 # NB Systray is incompatible with Wayland, consider using StatusNotifier instead
                 # widget.StatusNotifier(),
                 widget.Volume(),
+                                widget.Backlight(brightness_file="/sys/class/backlight/intel_backlight/brightness",
+                                 max_brightness_file="/sys/class/backlight/intel_backlight/max_brightness"),
                 widget.Battery(format="{percent:2.0%}",
                                low_foreground="FF0000",
                                low_percentage=0.5),
@@ -160,7 +163,7 @@ screens = [
                 widget.Clock(format="%Y-%m-%d %a %I:%M %p"),
                 # widget.QuickExit(),
             ],
-            20,
+            23,
             # border_width=[2, 0, 2, 0],  # Draw top and bottom borders
             # border_color=["ff00ff", "000000", "ff00ff", "000000"]  # Borders are magenta
         ),

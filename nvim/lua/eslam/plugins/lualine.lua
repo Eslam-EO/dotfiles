@@ -31,6 +31,7 @@ end
 -- configure lualine with modified theme
 lualine.setup({
 	options = {
+		globalstatus = true,
 		icons_enabled = true,
 		theme = "auto",
 		component_separators = { left = "", right = "" },
